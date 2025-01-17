@@ -1,0 +1,28 @@
+name: Compile LaTeX Document
+
+on:
+  push:
+    tags:
+      - '*'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Install LaTeX
+        run: sudo apt-get update && sudo apt-get install -y texlive-full
+
+      - name: Compile LaTeX
+        run: |
+          pdflatex assignment.tex
+          pdflatex assignment.tex
+
+      - name: Upload PDF to Release
+        uses: actions/upload-artifact@v3
+        with:
+          name: Assignment-PDF
+          path: assignment.pdf
