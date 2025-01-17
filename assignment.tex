@@ -1,21 +1,123 @@
 \documentclass[a4paper,12pt]{article}
 \usepackage{amsmath,amssymb}
+\usepackage{hyperref} 
 
-\title{Assignment}
-\author{Your Name}
+
+\title{\textbf{Final Assignment: Integration of Tools and Practices}}
+\author{Mahya Moeini\\402412453}
 \date{\today}
 
 \begin{document}
 
+
 \maketitle
 
-\section{Introduction}
-This document provides answers to the assignment questions.
 
-\section{Category 1: [Question Category Name]}
-Answer to the questions in Category 1.
+\\\textbf{Introduction}
+\\
+\\This document provides answers to the assignment questions.
 
-\section{Category 2: [Question Category Name]}
-Answer to the questions in Category 2.
+\clearpage
+
+
+\tableofcontents
+\clearpage
+
+
+\section{Git and GitHub}
+
+\subsection{Repository Initialization and Commits}
+Write about how you set up the repository for this assignment. Explain every step in detail.
+\\
+\\\textbf{1. Create a New Repository on GitHub}
+\\Log in to your GitHub account at github.com.
+Click the green New button (or navigate to the "Repositories" tab and select "New").
+\\Fill in the repository details.
+\\Public the Repository.
+\\Initialize Repository: Check the box to add a README.md file to start the repository.
+\\Click Create Repository.
+\\
+\\\textbf{2. Clone the Repository Locally}
+\\Navigate to the repository on GitHub.
+\\Copy the repository’s URL by clicking the Code button and selecting HTTPS or SSH.
+\\Open a terminal (or Git Bash) on your local machine and navigate to the directory where you want to clone the repository.
+\\git clone repositoryname
+\\
+\\\textbf{3. Add Your LaTeX Files}
+\\Create your .tex file.
+\\
+\\\textbf{4. Track Changes with Git}
+\\Use git status to check the current state of your repository.
+\\Stage the changes with git add .
+\\Commit the changes git commit -m "Initial commit: Add LaTeX files for assignment"
+\\Push your committed changes to the GitHub repository  git push origin main
+\\
+\\
+\\
+\\
+\subsection{GitHub Actions for LaTeX Compilation}
+Provide a walkthrough of setting up GitHub Actions to automatically compile your LaTeX document and any challenges you encountered.
+\\
+\\\textbf{1.Set Up GitHub Actions Workflow}
+\\GitHub Actions uses YAML files to define workflows. These YAML files are typically placed in the .github/workflows/ directory of your repository.
+\\To create the workflow for LaTeX compilation, follow these steps:
+\\Navigate to Your Repository: Open the GitHub repository where your LaTeX project is stored.
+\\Create a New Directory for Workflows: Inside your repository, create a .github/workflows/ directory if it doesn’t already exist.
+\\Create the Workflow File: Create a new YAML file (e.g., latex.yml) in the .github/workflows/ directory.
+\\
+\\\textbf{2. Write the Workflow YAML}
+\\I use the template that was in your github.
+\\
+\\\textbf{3.Commit the Workflow File}
+\\Once the latex.yml file is created, add and commit the file to your repository:  
+\\git add .github/workflows/latex.yml
+\\git commit -m "Add GitHub Actions workflow for LaTeX compilation"
+\\git push origin main
+\\After pushing the changes to GitHub, navigate to the Actions tab in your GitHub repository.
+You should see the workflow listed, and it will trigger whenever you push to the main branch or create a pull request to main.
+Check the logs of the workflow to ensure the LaTeX compilation process works correctly.
+\\
+\\\textbf{4.Accessing the Compiled PDF}
+\\Once the workflow completes, you can download the compiled PDF from the Actions tab by selecting the relevant run and downloading the artifact (finalassignment.pdf).
+
+\clearpage
+\section{Exploration Task}
+\subsection{Vim Advanced Features}
+Explore and document 3 advanced features of Vim that were not covered in class.
+\\\textbf{1. Macros: Automating Repetitive Tasks}
+\\Vim allows you to record a sequence of actions into a macro, which can be replayed whenever needed. This is useful for automating repetitive editing tasks.
+\\How to Record a Macro:
+Press q followed by a letter to start recording. The letter will be the register where the macro is stored (e.g., qa will store the macro in register a).
+Perform the actions you want to automate. Vim will record each keypress as part of the macro.
+Press q again to stop recording.
+\\How to Play Back a Macro:
+To replay the macro, press @ followed by the register (e.g., @a will replay the macro stored in register a).
+You can replay the macro multiple times by specifying a count before pressing @. For example, 5@a will play the macro 5 times.
+\\Example Use Case:
+If you're editing a document and need to add a comment to multiple lines, you can record a macro to perform the process (e.g., moving to the beginning of a line, typing #, and moving to the next line) and then replay it across all lines.
+\\
+\\\textbf{2. Buffers and Windows: Managing Multiple Files}
+\\In Vim, buffers are in-memory representations of files, and windows are the views that display those buffers. You can easily switch between buffers, split windows, and work on multiple files simultaneously.
+\\To list open buffers : :ls
+\\To switch to a specific buffer, use:  :b buffernumber
+\\To split the window horizontally:  :split
+\\To split the window vertically:  :vsplit
+\\You can navigate between split windows using Ctrl-w followed by a direction key:
+\\Ctrl-w h to move to the left window
+\\Ctrl-w j to move to the window below
+\\Ctrl-w k to move to the window above
+\\Ctrl-w l to move to the right window
+\\Example Use Case:
+You can open a file in one window, split the window, and then open a different file in the second window. This makes it easier to compare or edit multiple files at once without switching back and forth between tabs.
+\\\textbf{3. Search and Replace with Regular Expressions}
+\\Vim supports powerful search and replace using regular expressions:
+\\Search with /pattern and navigate matches with n (next) or N (previous).
+Replace with :
+\texttt{\%s/old/new/g for global replacement or \%s/old/new/gc to confirm each one}
+
+
+
+
 
 \end{document}
+
