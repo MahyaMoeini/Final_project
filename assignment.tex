@@ -114,10 +114,95 @@ You can open a file in one window, split the window, and then open a different f
 \\Search with /pattern and navigate matches with n (next) or N (previous).
 Replace with :
 \texttt{\%s/old/new/g for global replacement or \%s/old/new/gc to confirm each one}
+\\
+\\
+\subsection{Memory profiling}
+\\
+\subsubsection{Memory Leak}
+In short, explain what memory leaks are and how they might happen in your program.
+\\A memory leak occurs when a program allocates memory during execution but fails to release it after it is no longer needed. Over time, this can lead to the program consuming excessive memory, potentially slowing down the system or causing it to crash.
+\\How They Happen:
+\\Unreleased Allocated Memory: Forgetting to free dynamically allocated memory (e.g., in C/C++ using malloc/new without corresponding free/delete).
+\\Circular References: Creating reference cycles where objects reference each other, preventing garbage collectors from reclaiming memory.
+\\Improper Resource Management: Not closing file handles, sockets, or other resources, leading to system resource exhaustion.
+\\
+\subsubsection{Memory profilers}
+Read about a tool called Valgrind and write about their purpose and how it helps when memory leaks happen.
+\\Purpose of Valgrind: Valgrind is a powerful debugging and profiling tool designed to help developers analyze their programs for memory-related issues, such as memory leaks, invalid memory accesses, and improper memory management. It is particularly useful in programs written in C, C++, and other languages that rely on manual memory management.
+\\How Valgrind Helps with Memory Leaks:
+\\Detecting Memory Leaks:
 
+Valgrind’s tool memcheck identifies memory that was allocated but not freed before program termination.
+It provides detailed reports on where memory was allocated, helping developers pinpoint the source of the leak.
+\\Tracking Invalid Memory Access:
 
+Valgrind detects attempts to read or write to memory that was not properly allocated or has already been freed, preventing undefined behavior.
+\\Identifying Resource Leaks:
 
+It helps locate memory blocks, file handles, or other resources that were not released, improving resource management.
+\\Detailed Diagnostics:
+
+Valgrind generates stack traces that show the exact sequence of function calls leading to the issue, aiding in faster debugging.
+\\Real-Time Analysis:
+
+Developers can run their programs under Valgrind to get a live view of memory behavior during execution.
+\\
+\subsection{GNU/Linux Bash Scripting}
+\\
+\subsubsection{fzf}
+Read about a handy CLI tool called fzf and answer the following questions:
+\\• What is fuzzy searching? Give a short description.
+\\Fuzzy searching is a technique used to find and match text that approximately matches a given input, even if the input is incomplete, contains typos, or is not an exact match. Instead of requiring precise matches, fuzzy searching prioritizes results based on relevance, often using scoring algorithms to rank potential matches.
+\\Fuzzy search tools, like fzf, analyze patterns in the input and compare them against a list of potential matches. This is particularly helpful for:
+
+\\Searching large files or directories.
+
+\\Quickly locating commands or files with partial input.
+
+\\Handling human errors like typos or incomplete entries.
+\\
+\\• Install \texttt{fzf} on your machine and give a description of what the following command does: 
+\texttt{ls | fzf}
+
+\\When you run \texttt{ls | fzf}, a list of files and directories from the current directory is displayed in an interactive interface.
+\\You can start typing to filter the list based on partial matches, even if your input is not an exact match.
+\\Use the arrow keys to navigate the matches, and press Enter to select an item.
+\\This command is useful for navigating and selecting files or directories more efficiently, especially in directories with many items.
+\subsubsection{Using fzf to find your favorite PDF}
+1. We first need to list the directory of all the files with the extension .PDF. Write a
+command to list the directory of all the files with the extension .PDF
+HINT: use the command fd for this purpose.
+\\\texttt{fd --extension pdf}
+\\or
+\\\texttt{fd -i --extension pdf}
+\\This command will recursively search through the current directory and its subdirectories for .pdf files and list them.
+\\
+\\2. Now we have to select the PDF we want using fzf. Write a command to use fzf to
+select a PDF from the data we gathered above.
+\\\texttt{fd --extension pdf | fzf}
+\\\texttt{fd -i --extension pdf}: This lists all .pdf files in the current directory and subdirectories.
+\texttt{| fzf}: This pipes the output of fd (the list of PDF files) to fzf, allowing you to interactively select a file from the list.
+\\
+\\
+\subsubsection{Opening the file using Zathura}
+Now that have selected which PDF we want to open, we can use a very minimalistic
+program called Zathura to open it. Write a command that uses the commands above to
+open the file using Zathura.
+\\\texttt{zathura \$(fd --extension pdf \mid fzf)}
+\\\texttt{With this command, the PDF you select will be opened directly in Zathura.}
+\clearpage
+\section{Git and FOSS}
+\\
+\subsection{README.md}
+Make sure to include a basic README.md file in your GitHub repository that describes
+the aim of this repository and its purpose.
+Make sure to use headings and lists in your README.md file.
+\\
+\\
+\subsection{Issues}
 
 
 \end{document}
+
+
 
