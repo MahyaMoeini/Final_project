@@ -1,27 +1,17 @@
 # Final_project
 # Git and LaTeX Project
 
-This repository is a project that integrates the use of Git for version control and LaTeX for document preparation. The goal is to demonstrate how these tools can be used together, including handling tasks such as searching for files, selecting and opening them, and formatting documents with LaTeX.
-
+The aim of this project is to integrate the tools and practices covered during the Computer Workshop course, with a focus on Git, GitHub, LaTeX, and related utilities. The purpose of creating a GitHub repository is to manage the project effectively, maintain version control, and automate tasks such as LaTeX document compilation using GitHub Actions.
 ## Purpose
 
-The purpose of this project is to:
-- Learn how to use `Git` for version control and collaborate on code.
-- Explore and document the process of working with LaTeX for formatting technical and scientific documents.
-- Use commands like `fd` and `fzf` to make file management easier.
-- Automate the process of opening files with tools like `Zathura`.
+Documentation and Submission: The repository is used to host a LaTeX-based document that contains detailed answers to the assignment questions.
+Version Control: Git is used for tracking changes in the document, enabling collaboration and history management.
+Automation: GitHub Actions is configured to compile the LaTeX file into a PDF automatically when specific tags are pushed, simplifying the workflow.
+Showcasing Skills: The repository serves as a demonstration of proficiency in tools like Git, LaTeX, GitHub Actions, and command-line utilities.
+Tasks to Be Documented in the Repository:
+Initialization of the repository and setup of version control.
+Detailed exploration of advanced features in tools like Vim and bash utilities (e.g., fzf).
+Setup of memory profiling using tools like Valgrind.
+Creation of a structured LaTeX document with a title page, table of contents, and well-defined sections.
+Contribution to FOSS (Free and Open Source Software) and documentation of personal goals regarding open-source contributions.
 
-## Features
-
-This repository includes the following features:
-- **File search**: Use `fd` to search for `.pdf` files.
-- **Interactive file selection**: Use `fzf` to select the PDF file.
-- **Open files in Zathura**: Open selected PDFs directly in Zathura using a combination of commands.
-- **LaTeX Documentation**: Documentation and commands formatted in LaTeX.
-
-## How to Use
-
-To use this project:
-1. Clone the repository using Git:
-   ```bash
-   git clone https://github.com/yourusername/git-latex-project.git
